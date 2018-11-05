@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<title>test</title>
+	<!--<link rel="stylesheet" type="text/css" th:href="@{../static/css/easyui/themes/bootstrap/easyui.css}">
+	<link rel="stylesheet" type="text/css" th:href="@{../static/css/easyui/themes/icon.css}">
+	<link rel="stylesheet" type="text/css" th:href="@{../static/css/easyui/themes/bootstrap/combo.css}">
+	<link rel="stylesheet" type="text/css" th:href="@{../static/css/index.css}">
+	<script type="text/javascript" th:src="@{../static/js/easyui/jquery.min.js}"></script>
+	<script type="text/javascript" th:src="@{../static/js/easyui/jquery.easyui.min.js}"></script>
+	<script type="text/javascript" th:src="@{../static/js/index.js}"></script>-->
+</head>
+<body class="easyui-layout">
+	<div data-options="region:'north',border:false" class="header">
+		<img class="aligncenter" src="../../static/img/logo.png" height="36" width="114" style="margin-left: 10px;margin-top: 2px"/>
+	</div>
+	<div data-options="region:'west',split:true,title:'菜单管理',selected:false" class="easyui-accordion indexmeun">
+		<div title="系统设置" data-options="iconCls:'icon-folder'" class="indexmeuntitle">
+			<div class="panel-title indexpaneltitle">
+				 <span class="icon-file">&nbsp;&nbsp;&nbsp;&nbsp;</span>
+				 <span class="titlename" onclick="addTab('权限设置','http://www.jointime.cn')">权限设置</span>
+			</div>
+			<div class="panel-title indexpaneltitle">
+				 <span class="icon-file">&nbsp;&nbsp;&nbsp;&nbsp;</span>
+				 <span class="titlename">权限分配</span>
+			</div>
+			<div class="panel-title indexpaneltitle">
+				<span class="icon-file">&nbsp;&nbsp;&nbsp;&nbsp;</span>
+				<span class="titlename"  onclick="addTab('后台登录用户管理(主办方)','/hostloginuser/appuser_hostloginuser')">(主办方)后台登录用户管理</span>
+			</div>
+			<div class="panel-title indexpaneltitle">
+				<span class="icon-file">&nbsp;&nbsp;&nbsp;&nbsp;</span>
+				<span class="titlename"  onclick="addTab('后台登录用户管理（官方）','/officialloginuser/official_officialloginuser')">（官方）后台登录用户管理</span>
+			</div>
+		</div>
+		<div title="主办方管理" data-options="iconCls:'icon-folder'" class="indexmeuntitle">
+			<div class="panel-title indexpaneltitle">
+				<span class="icon-file">&nbsp;&nbsp;&nbsp;&nbsp;</span>
+				<span class="titlename"  onclick="addTab('会务列表','/meeting/appuser_meeting')">会务列表</span>
+			</div>
+			<div class="panel-title indexpaneltitle">
+				<span class="icon-file">&nbsp;&nbsp;&nbsp;&nbsp;</span>
+				<span class="titlename"  onclick="addTab('订单管理','/order/appuser_order')">订单管理</span>
+			</div>
+			<div class="panel-title indexpaneltitle">
+				<span class="icon-file">&nbsp;&nbsp;&nbsp;&nbsp;</span>
+				<span class="titlename"  onclick="addTab('主办方管理员管理','/hostoruser/appuser_hostoruser')">主办方管理员管理</span>
+			</div>
+			<div class="panel-title indexpaneltitle">
+				<span class="icon-file">&nbsp;&nbsp;&nbsp;&nbsp;</span>
+				<span class="titlename"  onclick="addTab('试题管理','/testpaper/appuser_testpaper')">试题管理</span>
+			</div>
+			<div class="panel-title indexpaneltitle">
+				<span class="icon-file">&nbsp;&nbsp;&nbsp;&nbsp;</span>
+				<span class="titlename"  onclick="addTab('会务出席方人员管理','/joinmetpersonnel/appuser_joinmetpersonnel')">会务出席方人员管理</span>
+			</div>
+			<div class="panel-title indexpaneltitle">
+				<span class="icon-file">&nbsp;&nbsp;&nbsp;&nbsp;</span>
+				<span class="titlename"  onclick="addTab('会务通知管理','/notice/appuser_notice')">会务通知管理</span>
+			</div>
+			<div class="panel-title indexpaneltitle">
+				<span class="icon-file">&nbsp;&nbsp;&nbsp;&nbsp;</span>
+				<span class="titlename"  onclick="addTab('账户充值报表','/appusertotalcount/appuser_appusertotalcount')">账户充值报表</span>
+			</div>
+			<div class="panel-title indexpaneltitle">
+				<span class="icon-file">&nbsp;&nbsp;&nbsp;&nbsp;</span>
+				<span class="titlename"  onclick="addTab('会务统计报表','/meeting/appuser_meetingsum')">会务统计报表</span>
+			</div>
+			<div class="panel-title indexpaneltitle">
+				<span class="icon-file">&nbsp;&nbsp;&nbsp;&nbsp;</span>
+				<span class="titlename"  onclick="addTab('业务员统计报表','/hostsalesman/appuser_hostsalesman')">业务员统计报表</span>
+			</div>
+			<div class="panel-title indexpaneltitle">
+				<span class="icon-file">&nbsp;&nbsp;&nbsp;&nbsp;</span>
+				<span class="titlename"  onclick="addTab('银行卡管理','/bankcard/appuser_bankcard')">银行卡管理</span>
+			</div>
+			<div class="panel-title indexpaneltitle">
+				<span class="icon-file">&nbsp;&nbsp;&nbsp;&nbsp;</span>
+				<span class="titlename"  onclick="addTab('开票申请管理','/openbill/appuser_openbill')">开票申请管理</span>
+			</div>
+			<div class="panel-title indexpaneltitle">
+				<span class="icon-file">&nbsp;&nbsp;&nbsp;&nbsp;</span>
+				<span class="titlename" onclick="addTab('汇款管理','/remittance/appuser_remittancevoucher')">汇款管理</span>
+			</div>
+			<div class="panel-title indexpaneltitle">
+				<span class="icon-file">&nbsp;&nbsp;&nbsp;&nbsp;</span>
+				<span class="titlename" onclick="addTab('提现管理','/extractcash/appuser_extractcash')">提现管理</span>
+			</div>
+		</div>
+		<div title="官方管理" data-options="iconCls:'icon-folder'" class="indexmeuntitle">
+			<div class="panel-title indexpaneltitle">
+				<span class="icon-file">&nbsp;&nbsp;&nbsp;&nbsp;</span>
+				<span class="titlename"  onclick="addTab('主办方管理','/host/offical_appuser')">主办方管理</span>
+			</div>
+			<div class="panel-title indexpaneltitle">
+				<span class="icon-file">&nbsp;&nbsp;&nbsp;&nbsp;</span>
+				<span class="titlename"  onclick="addTab('订单管理','/order/official_order')">订单管理</span>
+			</div>
+			<div class="panel-title indexpaneltitle">
+				<span class="icon-file">&nbsp;&nbsp;&nbsp;&nbsp;</span>
+				<span class="titlename"  onclick="addTab('APP系统版本控制','/sysupdate/official_sysupdate')">APP系统版本控制</span>
+			</div>
+			<!--<div class="panel-title indexpaneltitle">
+				<span class="icon-file">&nbsp;&nbsp;&nbsp;&nbsp;</span>
+				<span class="titlename"  onclick="addTab('短信模板管理','/smsmodel/official_smsmodel')">短信模板管理</span>
+			</div>-->
+			<div class="panel-title indexpaneltitle">
+				<span class="icon-file">&nbsp;&nbsp;&nbsp;&nbsp;</span>
+				<span class="titlename"  onclick="addTab('会务服务费','/technicalfee/official_technicalfee')">会务服务费</span>
+			</div>
+			<div class="panel-title indexpaneltitle">
+				<span class="icon-file">&nbsp;&nbsp;&nbsp;&nbsp;</span>
+				<span class="titlename"  onclick="addTab('菜单管理','/menupower/official_menupower')">菜单管理</span>
+			</div>
+			<div class="panel-title indexpaneltitle">
+				<span class="icon-file">&nbsp;&nbsp;&nbsp;&nbsp;</span>
+				<span class="titlename"  onclick="addTab('首页广告管理','/ad/official_ad')">首页广告管理</span>
+			</div>
+			<div class="panel-title indexpaneltitle">
+				<span class="icon-file">&nbsp;&nbsp;&nbsp;&nbsp;</span>
+				<span class="titlename"  onclick="addTab('会务服务选项管理','/servicetype/official_servicetype')">会务服务选项管理</span>
+			</div>
+			<div class="panel-title indexpaneltitle">
+				<span class="icon-file">&nbsp;&nbsp;&nbsp;&nbsp;</span>
+				<span class="titlename"  onclick="addTab('会务管理','/meeting/official_meeting')">会务管理</span>
+			</div>
+			<div class="panel-title indexpaneltitle">
+				<span class="icon-file">&nbsp;&nbsp;&nbsp;&nbsp;</span>
+				<span class="titlename"  onclick="addTab('会务出席方人员管理','/joinmetpersonnel/official_joinmetpersonnel')">会务出席方人员管理</span>
+			</div>
+			<div class="panel-title indexpaneltitle">
+				<span class="icon-file">&nbsp;&nbsp;&nbsp;&nbsp;</span>
+				<span class="titlename"  onclick="addTab('发票管理','/openbill/official_openbill')">发票管理</span>
+			</div>
+			<!--<div class="panel-title indexpaneltitle">
+				<span class="icon-file">&nbsp;&nbsp;&nbsp;&nbsp;</span>
+				<span class="titlename"  onclick="addTab('会务评论管理','/metComment/official_metcomment')">会务评论管理</span>
+			</div>-->
+			<div class="panel-title indexpaneltitle">
+				<span class="icon-file">&nbsp;&nbsp;&nbsp;&nbsp;</span>
+				<span class="titlename"  onclick="addTab('业务员管理','/hostsalesman/official_hostsalesman')">业务员管理</span>
+			</div>
+			<div class="panel-title indexpaneltitle">
+				<span class="icon-file">&nbsp;&nbsp;&nbsp;&nbsp;</span>
+				<span class="titlename"  onclick="addTab('试题管理','/testpaper/official_testpaper')">试题管理</span>
+			</div>
+			<div class="panel-title indexpaneltitle">
+				<span class="icon-file">&nbsp;&nbsp;&nbsp;&nbsp;</span>
+				<span class="titlename"  onclick="addTab('会务通知管理','/notice/official_notice')">会务通知管理</span>
+			</div>
+			<div class="panel-title indexpaneltitle">
+				<span class="icon-file">&nbsp;&nbsp;&nbsp;&nbsp;</span>
+				<span class="titlename"  onclick="addTab('用户管理','/user/official_user')">用户管理</span>
+			</div>
+			<div class="panel-title indexpaneltitle">
+				<span class="icon-file">&nbsp;&nbsp;&nbsp;&nbsp;</span>
+				<span class="titlename"  onclick="addTab('主办方统计报表','/meeting/official_hostsum')">主办方统计报表</span>
+			</div>
+			<div class="panel-title indexpaneltitle">
+				<span class="icon-file">&nbsp;&nbsp;&nbsp;&nbsp;</span>
+				<span class="titlename"  onclick="addTab('主办方账户管理','/memberaccount/official_memberaccount')">主办方账户管理</span>
+			</div>
+			<div class="panel-title indexpaneltitle">
+				<span class="icon-file">&nbsp;&nbsp;&nbsp;&nbsp;</span>
+				<span class="titlename"  onclick="addTab('主办方汇款管理','/remittance/official_remittancevoucher')">主办方汇款管理</span>
+			</div>
+			<div class="panel-title indexpaneltitle">
+				<span class="icon-file">&nbsp;&nbsp;&nbsp;&nbsp;</span>
+				<span class="titlename"  onclick="addTab('主办方提现管理','/extractcash/official_extractcash')">主办方提现管理</span>
+			</div>
+			<div class="panel-title indexpaneltitle">
+				<span class="icon-file">&nbsp;&nbsp;&nbsp;&nbsp;</span>
+				<span class="titlename"  onclick="addTab('支付订单管理','/payorder/official_payorder')">支付订单管理</span>
+			</div>
+		</div>
+		<div title="会务管理" data-options="iconCls:'icon-folder'" class="indexmeuntitle">
+			<div class="panel-title indexpaneltitle">
+				 <span class="icon-file">&nbsp;&nbsp;&nbsp;&nbsp;</span>
+				 <span class="titlename"  onclick="addTab('会务列表','/meeting/meeting')">会务列表</span>
+			</div>
+		</div>
+		<div title="订单管理" data-options="iconCls:'icon-folder'" class="indexmeuntitle">
+			<div class="panel-title indexpaneltitle">
+				<span class="icon-file">&nbsp;&nbsp;&nbsp;&nbsp;</span>
+				<span class="titlename" onclick="addTab('订单列表','/order/getorderview')">订单列表</span>
+			</div>
+		</div>
+		<div title="账户管理" data-options="iconCls:'icon-folder'" class="indexmeuntitle">
+			<div class="panel-title indexpaneltitle">
+				<span class="icon-file">&nbsp;&nbsp;&nbsp;&nbsp;</span>
+				<span class="titlename" onclick="addTab('汇款列表','/remittance/getvoucher')">充值列表</span>
+			</div>
+		</div>
+		<div title="用户管理" data-options="iconCls:'icon-folder'" class="indexmeuntitle">
+			<div class="panel-title indexpaneltitle">
+				 <span class="icon-file">&nbsp;&nbsp;&nbsp;&nbsp;</span>
+				 <span class="titlename">系统设置</span>
+			</div>
+		</div>
+	</div>
+
+	<!--中间选项卡开始-->
+		<div id="tt" data-options="region:'center'" class="easyui-tabs">
+		    <div title="系统首页" style="padding:20px;display:none;">
+		    </div>
+		</div>
+	<!--中间选项卡结束-->
+	<div data-options="region:'south',border:false" class="foot">
+		版权所有&nbsp;&nbsp;&nbsp;<a href="http://www.jointime.cn"target="_blank">深圳欢颜中软科技有限公司</a>&nbsp;&nbsp;&nbsp;
+		<a href="http://www.miitbeian.gov.cn" target="_blank">粤ICP备18036179号</a> &nbsp;&nbsp;&nbsp; COPYRIGHT  ©right BY-JOINTIME.CN
+	</div>
+</body>
+</html>
+
+
